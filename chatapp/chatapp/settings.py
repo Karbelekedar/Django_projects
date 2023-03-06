@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+AUTH_USER_MODEL = "user_control.CustomUser"
 
 # Application definition
 
@@ -38,9 +39,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    # 'message_control',
     'user_control',
     'chatapp'
 ]
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_SAVE_EVERY_REQUEST = True
+SESSION_COOKIE_AGE = 86400 # sec
+SESSION_COOKIE_DOMAIN = None
+SESSION_COOKIE_NAME = 'DSESSIONID'
+SESSION_COOKIE_SECURE = False
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
